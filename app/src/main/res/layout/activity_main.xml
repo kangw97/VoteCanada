@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="ca.bcit.votecanada.MainActivity"
     android:orientation="vertical">
 
     <!-- This linear layout will contain the main title and image
@@ -15,11 +15,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
         android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp">
          <Button
             android:id="@+id/findOffice"
             android:layout_width="match_parent"
