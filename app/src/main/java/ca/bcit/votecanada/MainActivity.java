@@ -54,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onRoutingClick(View V) {
         Intent intent = new Intent(this, RoutingActivity.class);
-        startActivity(intent);
-    }
-
-    public void onPartyClick(View V) {
-        Intent intent = new Intent(this, PartyActivity.class);
-    // click button to map page
-    public void onRoutingClick(View V) {
-        Intent intent = new Intent(this, RoutingActivity.class);
         // passing address to google map activity
         intent.putExtra("addresses", addresses);
         // passing polling name to google map activity
@@ -69,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         // passing geo coordinates to google map activity
         intent.putExtra("geo", longLat);
         // starting intent
+        startActivity(intent);
+    }
+
+    public void onPartyClick(View V) {
+        Intent intent = new Intent(this, PartyActivity.class);
         startActivity(intent);
     }
 

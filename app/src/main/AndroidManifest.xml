@@ -17,8 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PartyActivity"></activity>
-        <activity android:name=".RoutingActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -35,10 +33,10 @@
         <activity
             android:name=".RoutingActivity"
             android:label="@string/title_activity_routing"></activity>
+        <activity android:name=".PartyActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
