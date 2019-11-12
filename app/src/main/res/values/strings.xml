@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">VoteCanada</string>
-    <string name="title_activity_routing">Map</string>
+
+    <!-- Main Activity String Values -->
+    <string name="home_title">VoteCanada</string>
+  <string name="title_activity_routing">Map</string>
 </resources>
