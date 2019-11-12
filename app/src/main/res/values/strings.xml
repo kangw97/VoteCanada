@@ -3,4 +3,5 @@
 
     <!-- Main Activity String Values -->
     <string name="home_title">VoteCanada</string>
+  <string name="title_activity_routing">Map</string>
 </resources>

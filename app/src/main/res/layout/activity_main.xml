@@ -18,6 +18,10 @@
 
         <TextView
             android:id="@+id/textView"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+         <Button
+            android:id="@+id/findOffice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/home_title"
