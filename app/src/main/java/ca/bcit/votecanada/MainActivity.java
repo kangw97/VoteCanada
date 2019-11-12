@@ -1,5 +1,6 @@
 package ca.bcit.votecanada;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
       */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // call super class
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // initialize address arraylist
