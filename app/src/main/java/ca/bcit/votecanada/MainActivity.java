@@ -52,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
         // reading json objects
         new GetContacts().execute();
     }
+    public void onRoutingClick(View V) {
+        Intent intent = new Intent(this, RoutingActivity.class);
+        startActivity(intent);
+    }
 
+    public void onPartyClick(View V) {
+        Intent intent = new Intent(this, PartyActivity.class);
     // click button to map page
     public void onRoutingClick(View V) {
         Intent intent = new Intent(this, RoutingActivity.class);

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensions for activity_main.xml -->
+    <dimen name="main_title">43dp</dimen>
+    <dimen name="main_text">35dp</dimen>
+    <dimen name="button_width">345dp</dimen>
+
+</resources>
