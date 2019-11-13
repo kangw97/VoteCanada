@@ -146,8 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(getApplicationContext(),
                                 "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG)
-                                .show();
+                                Toast.LENGTH_LONG).show();
                     }
                 });
             }
