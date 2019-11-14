@@ -57,7 +57,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-public class RoutingActivity extends FragmentActivity implements OnMapReadyCallback {
+public class RoutingActivity extends FragmentActivity implements OnMapReadyCallback, TaskLoadedCallback {
     // the map
     private GoogleMap mMap;
     // default zoom level
@@ -87,6 +87,7 @@ public class RoutingActivity extends FragmentActivity implements OnMapReadyCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routing);
+        // show map ui
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(RoutingActivity.this);
 
@@ -163,16 +164,31 @@ public class RoutingActivity extends FragmentActivity implements OnMapReadyCallb
     }
     // calculate the distance between each voitingoffice to the current location
     private double CalculationByDistance(LatLng StartP, LatLng EndP) {
-        float results[] = new float[10];
+        String totalDistance = "";
+        float results[] = new float[1000];
         Location.distanceBetween(StartP.latitude, StartP.longitude, EndP.latitude, EndP.longitude, results);
         return Double.parseDouble(new DecimalFormat("0.#").format(results[0] / 1000));
     }
-    // show routing after user selection
-    private void showRouting(MarkerOptions start, MarkerOptions end) {
-        String url = getUrl(start.getPosition(), end.getPosition(), "driving");
-        TaskRequestDirections taskRequestDirections = new TaskRequestDirections();
-        taskRequestDirections.execute(url);
+    // show the current location and the selected office markers
+    private void setMarks(LatLng start, LatLng end, String officeName) {
+        markers = new Marker[2];
+        // call showRouting()
+        showRouting(new MarkerOptions().position(start), new MarkerOptions().position(end));
+        // add marker on map
+        markers[0]= mMap.addMarker(new MarkerOptions().position(start).title("You are here!").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        markers[1] = mMap.addMarker(new MarkerOptions().position(end).title(officeName));
+        markers[1].showInfoWindow();
+        // auto move the camera to cover two locations
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        for (Marker marker : markers) {
+            builder.include(marker.getPosition());
+        }
+        LatLngBounds bounds = builder.build();
+        int padding = 200; // offset from edges of the map in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        mMap.animateCamera(cu);
     }
+
     // formatting the url to call routing api
     private String getUrl(LatLng origin, LatLng dest, String travelMode) {
         // Origin of route
@@ -189,120 +205,17 @@ public class RoutingActivity extends FragmentActivity implements OnMapReadyCallb
         String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters + "&key=" + getString(R.string.google_maps_key);
         return url;
     }
-
-    private String requestDirection(String reqUrl) throws IOException {
-        String responseString = "";
-        InputStream inputStream = null;
-        HttpURLConnection httpURLConnection = null;
-        try {
-            URL url = new URL(reqUrl);
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.connect();
-
-            // Get the resonse result
-            inputStream = httpURLConnection.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            StringBuffer stringBuffer = new StringBuffer();
-            String line = "";
-            while((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
-            }
-
-            responseString = stringBuffer.toString();
-            bufferedReader.close();
-            inputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if(inputStream != null) {
-                inputStream.close();
-            }
-            httpURLConnection.disconnect();
-        }
-        return responseString;
+    // show routing after user selection
+    private void showRouting(MarkerOptions start, MarkerOptions end) {
+        String url = getUrl(start.getPosition(), end.getPosition(), "driving");
+        new FetchURL(RoutingActivity.this).execute(getUrl(start.getPosition(), end.getPosition(), "driving"), "driving");
     }
-    // show the current location and the selected office markers
-    private void setMarks(LatLng start, LatLng end, String officeName) {
-        markers = new Marker[2];
-        markers[0]= mMap.addMarker(new MarkerOptions().position(start).title("You are here!").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-        markers[1] = mMap.addMarker(new MarkerOptions().position(end).title(officeName));
-        markers[1].showInfoWindow();
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Marker marker : markers) {
-            builder.include(marker.getPosition());
-        }
-        LatLngBounds bounds = builder.build();
-        int padding = 200; // offset from edges of the map in pixels
-        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-        mMap.animateCamera(cu);
-        showRouting(new MarkerOptions().position(start), new MarkerOptions().position(end));
-    }
-
-    public class TaskRequestDirections extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... strings) {
-            String responseString ="";
-            try {
-                responseString = requestDirection(strings[0]);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return responseString;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            // Parse json here
-            TaskParser taskParser = new TaskParser();
-            taskParser.execute(s);
-        }
-    }
-    public class TaskParser extends AsyncTask<String, Void, List<List<HashMap<String, String>>> >{
-
-        @Override
-        protected List<List<HashMap<String, String>>> doInBackground(String... strings) {
-            JSONObject jsonObject = null;
-            List<List<HashMap<String, String>>> routes = null;
-            try {
-                jsonObject = new JSONObject(strings[0]);
-                DirectionParser directionParser = new DirectionParser();
-                routes = directionParser.parse(jsonObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return routes;
-        }
-
-        @Override
-        protected void onPostExecute(List<List<HashMap<String, String>>> lists) {
-            // Get list route and display it into the map
-            ArrayList points;
-            PolylineOptions polylineOptions = null;
-            for(List<HashMap<String, String>> path: lists) {
-                points = new ArrayList();
-                polylineOptions = new PolylineOptions();
-
-                for(HashMap<String, String> point: path) {
-                    double lat = Double.parseDouble(point.get("lat"));
-                    double lon = Double.parseDouble(point.get("lon"));
-                    points.add(new LatLng(lat, lon));
-                }
-
-                polylineOptions.addAll(points);
-                polylineOptions.width(15);
-                polylineOptions.color(Color.BLUE);
-                polylineOptions.geodesic(true);
-            }
-
-            if(polylineOptions != null) {
-                mMap.addPolyline(polylineOptions);
-            } else {
-                Toast.makeText(getApplicationContext(), "Direction not found!", Toast.LENGTH_LONG).show();
-            }
-        }
+    // add routing on map
+    @Override
+    public void onTaskDone(Object... values) {
+        if (currentPolyline != null)
+            currentPolyline.remove();
+        currentPolyline = mMap.addPolyline((PolylineOptions) values[0]);
+        Log.i("test", "length " + currentPolyline.getWidth());
     }
 }

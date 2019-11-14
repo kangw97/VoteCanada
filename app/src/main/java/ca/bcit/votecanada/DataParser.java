@@ -1,5 +1,7 @@
 package ca.bcit.votecanada;
 
+import android.util.Log;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -10,14 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class DirectionParser {
-    /**
-     * Return a list of lists containing latitude and longtitude from a JSONobject
-     * @param jObject
-     * @return
-     */
-    public List<List<HashMap<String, String>>> parse(JSONObject jObject) {
+/**
+ * Created by KANG
+ */
 
+public class DataParser {
+    public List<List<HashMap<String, String>>> parse(JSONObject jObject) {
         List<List<HashMap<String, String>>> routes = new ArrayList<>();
         JSONArray jRoutes;
         JSONArray jLegs;
@@ -42,7 +42,7 @@ public class DirectionParser {
                         for (int l = 0; l < list.size(); l++) {
                             HashMap<String, String> hm = new HashMap<>();
                             hm.put("lat", Double.toString((list.get(l)).latitude));
-                            hm.put("lon", Double.toString((list.get(l)).longitude));
+                            hm.put("lng", Double.toString((list.get(l)).longitude));
                             path.add(hm);
                         }
                     }
