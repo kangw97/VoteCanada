@@ -34,6 +34,7 @@
             android:name=".RoutingActivity"
             android:label="@string/title_activity_routing"></activity>
         <activity android:name=".PartyActivity"></activity>
+        <activity android:name=".DetailActivity" android:parentActivityName=".PartyActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -27,4 +27,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation "com.google.android.gms:play-services-location:17.0.0"
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    def recyclerview_version = "1.0.0"
+
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
 }
