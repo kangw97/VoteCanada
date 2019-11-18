@@ -28,8 +28,12 @@ public class DetailActivity extends AppCompatActivity {
             TextView party_leader = findViewById(R.id.party_leader);
             party_leader.setText(party.getPartyLeader());
 
+            TextView party_ideology = findViewById(R.id. party_ideology);
+            for (int i = 0; i < party.getIdeology().length; i++)
+            party_ideology.setText(party_ideology.getText() + party.getIdeology()[i] + "\n");
+
             ImageView party_image = findViewById(R.id.party_image);
-            party_image.setImageDrawable(ContextCompat.getDrawable(this, party.getImageResourceID()));
+            party_image.setImageDrawable(ContextCompat.getDrawable(this, party.getLeaderImgID()));
             party_image.setContentDescription(party.getPartyName());
         }
     }
