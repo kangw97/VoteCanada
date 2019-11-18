@@ -1,19 +1,76 @@
 package ca.bcit.votecanada;
 
 
+
 public class Party {
     private String partyName;
     private String partyLeader;
+    private String[] ideology;
     private int imageResourceID;
 
 
+
+    private int leaderImgID;
+
+    static String[] libIdeo = {"Liberalism", "Social liberalism"};
+
+    static String[] conservIdeo = {"Canadian conservatism",
+            "Economic liberalism",
+            "Fiscal conservatism",
+            "Canadian federalism"};
+    static String[] blocIdeo = {"Quebec nationalism",
+            "Quebec sovereigntism",
+            "Left-wing nationalism",
+            "Regionalism",
+            "Republicanism",
+            "Environmentalism",
+            "Social democracy"};
+    static String[] ndpIdeo = {"Social democracy",
+            "Democratic socialism"};
+    static String[] peopleIdeo = {"Canadian conservatism",
+            "Canadian populism",
+            "Classical liberalism",
+            "Libertarianism",
+            "Right-wing populism"};
+    static String[] greenIdeo = {"Green politics"};
+
+
+
     public static final Party[] parties = {
-            new Party("Liberal Party", "Justin Trudeau", R.drawable.liberal),
-            new Party("Conservative Party", "Andrew Scheer", R.drawable.conservative),
-            new Party("Bloc Québécois", "Yves-François Blanchet", R.drawable.bloc),
-            new Party("New Democratic Party", "Jagmeet Singh", R.drawable.ndp),
-            new Party("Green Party", "Elizabeth May", R.drawable.green),
-            new Party("People's Party", "Maxime Bernier", R.drawable.people)
+            new Party(
+                    "Liberal Party",
+                    "Justin Trudeau",
+                    libIdeo,R.drawable.liberal,
+                    R.drawable.jt),
+            new Party(
+                    "Conservative Party",
+                    "Andrew Scheer", conservIdeo,
+                     R.drawable.conservative,
+                     R.drawable.as),
+            new Party(
+                    "Bloc Québécois",
+                    "Yves-François Blanchet",
+                    blocIdeo,
+                    R.drawable.bloc,
+                    R.drawable.yfb),
+            new Party(
+                    "New Democratic Party",
+                    "Jagmeet Singh",
+                    ndpIdeo,
+                    R.drawable.ndp,
+                    R.drawable.js),
+            new Party(
+                    "Green Party",
+                    "Elizabeth May",
+                    peopleIdeo,
+                    R.drawable.green,
+                    R.drawable.emg),
+            new Party(
+                    "People's Party",
+                    "Maxime Bernier",
+                    greenIdeo,
+                    R.drawable.people,
+                    R.drawable.mb)
     };
 
 
@@ -47,24 +104,30 @@ public class Party {
         return parties;
     }
 
-
-    public Party(String name, String leader, int imgId) {
-        this.partyName = name;
-        this.partyLeader = leader;
-        this.imageResourceID = imgId;
+    public String[] getIdeology() {
+        return ideology;
     }
 
-//    public static Party[] getPartyByPartyLeader(String leader) {
-//        ArrayList<Party> partyList = new ArrayList<Party>();
-//        for (int i = 0; i < parties.length; i++) {
-//            Party p = parties[i];
-//            if (leader.toLowerCase().trim().equals(p.getPartyLeader().toLowerCase())) {
-//                partyList.add(p);
-//            }
-//        }
-//        Party[] array = partyList.toArray(new Party[partyList.size()]);
-//        return array;
-//    }
+    public void setIdeology(String[] ideology) {
+        this.ideology = ideology;
+    }
+
+    public int getLeaderImgID() {
+        return leaderImgID;
+    }
+
+    public void setLeaderImgID(int leaderImgID) {
+        this.leaderImgID = leaderImgID;
+    }
+
+    public Party(String name, String leader, String[] ideology,int imgId, int imgId2) {
+        this.partyName = name;
+        this.partyLeader = leader;
+        this.ideology = ideology;
+        this.imageResourceID = imgId;
+        this.leaderImgID = imgId2;
+    }
+
 
     public static Party getPartyByName(String name) {
 
