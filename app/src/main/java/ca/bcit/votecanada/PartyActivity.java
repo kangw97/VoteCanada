@@ -1,11 +1,17 @@
 package ca.bcit.votecanada;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PartyActivity extends AppCompatActivity {
     @Override
@@ -37,6 +43,26 @@ public class PartyActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.nav_map:
+                                break;
+                            case R.id.nav_parties:
+                                break;
+                            case R.id.nav_checklist:
+                                break;
+
+                        }
+                        return true;
+                    }
+                });
 
     }
 }
