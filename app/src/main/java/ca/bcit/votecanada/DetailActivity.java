@@ -28,6 +28,12 @@ public class DetailActivity extends AppCompatActivity {
             TextView party_leader = findViewById(R.id.party_leader);
             party_leader.setText(party.getPartyLeader());
 
+            TextView party_seats = findViewById(R.id.party_seats);
+            party_seats.setText(party.getSeats());
+
+            TextView party_percentage = findViewById(R.id.party_percentage);
+            party_percentage.setText(party.getPercentage());
+
             TextView party_ideology = findViewById(R.id. party_ideology);
             for (int i = 0; i < party.getIdeology().length; i++)
             party_ideology.setText(party_ideology.getText() + party.getIdeology()[i] + "\n");

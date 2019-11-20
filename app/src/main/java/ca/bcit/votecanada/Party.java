@@ -6,6 +6,8 @@ public class Party {
     private String partyName;
     private String partyLeader;
     private String[] ideology;
+    private String seats;
+    private String percentage;
     private int imageResourceID;
 
 
@@ -40,35 +42,49 @@ public class Party {
             new Party(
                     "Liberal Party",
                     "Justin Trudeau",
-                    libIdeo,R.drawable.liberal,
+                    libIdeo,
+                    "157",
+                    "46.4%",
+                    R.drawable.liberal,
                     R.drawable.jt),
             new Party(
                     "Conservative Party",
-                    "Andrew Scheer", conservIdeo,
+                    "Andrew Scheer",
+                    conservIdeo,
+                     "121",
+                     "35.8%",
                      R.drawable.conservative,
                      R.drawable.as),
             new Party(
                     "Bloc Québécois",
                     "Yves-François Blanchet",
                     blocIdeo,
+                    "32",
+                    "9.5",
                     R.drawable.bloc,
                     R.drawable.yfb),
             new Party(
                     "New Democratic Party",
                     "Jagmeet Singh",
                     ndpIdeo,
+                    "24",
+                    "7.1",
                     R.drawable.ndp,
                     R.drawable.js),
             new Party(
                     "Green Party",
                     "Elizabeth May",
                     peopleIdeo,
+                    "3",
+                    "0.8",
                     R.drawable.green,
                     R.drawable.emg),
             new Party(
                     "People's Party",
                     "Maxime Bernier",
                     greenIdeo,
+                    "1",
+                    "0.3",
                     R.drawable.people,
                     R.drawable.mb)
     };
@@ -120,10 +136,28 @@ public class Party {
         this.leaderImgID = leaderImgID;
     }
 
-    public Party(String name, String leader, String[] ideology,int imgId, int imgId2) {
+    public String getSeats() {
+        return seats;
+    }
+
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
+
+    public String getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(String percentage) {
+        this.percentage = percentage;
+    }
+
+    public Party(String name, String leader, String[] ideology, String seats, String percentage, int imgId, int imgId2) {
         this.partyName = name;
         this.partyLeader = leader;
         this.ideology = ideology;
+        this.seats = seats;
+        this.percentage = percentage;
         this.imageResourceID = imgId;
         this.leaderImgID = imgId2;
     }
