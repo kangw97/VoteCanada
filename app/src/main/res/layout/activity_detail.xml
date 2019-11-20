@@ -3,57 +3,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".DetailActivity">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_text"
-        android:layout_marginLeft="5dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    <ImageView
+    android:orientation="vertical">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/party_image"
-        android:adjustViewBounds="true"/>
-
+        android:layout_height="405dp">
+        <LinearLayout
+            android:background="#ff0000"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/party_image"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp">
+            </ImageView>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/party_leader"
+                android:layout_gravity="center_horizontal"
+                android:text="Leader:"
+                android:textColor="#ffffff"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/party_text"
+                android:text="Party:"
+                android:textColor="#ffffff"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal">
+            </TextView>
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="380dp"
+            android:background="#ffffff"
+            android:layout_marginTop="300dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="2"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <!-- Seats #-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seats"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="23"
+                        android:textColor="#ff0000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+                <!-- Percentage #-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Percentage"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="23"
+                        android:textColor="#ff0000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height= "30dp">
-
+        android:layout_width="360dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "Party Leader :"
-            android:layout_marginLeft="5dp"
-            android:textAppearance="?android:attr/textAppearance"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_leader"
-        android:layout_marginLeft="5dp"
-        android:textAppearance="?android:attr/textAppearance"/>
-
-
-
+            android:text="Ideologies: "
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:textColor="#ff0000"
+            android:textStyle="bold"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/party_ideology"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text = "Ideology :"
-        android:layout_marginLeft="5dp"
-        android:textAppearance="?android:attr/textAppearance"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/party_ideology"
-        android:layout_marginLeft="5dp"
-        android:textAppearance="?android:attr/textAppearance"/>
-
-
 </LinearLayout>
