@@ -12,7 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Vishal on 10/20/2018.
+ * Setting up Google Maps Direction API
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
  */
 
 public class FetchURL extends AsyncTask<String, Void, String> {

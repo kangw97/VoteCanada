@@ -15,12 +15,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/startBtn"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="300dp"
+        android:visibility="invisible"
         android:text="Start" />
     <ListView
         android:id="@+id/lvOffices"
         android:layout_below="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:divider="#FF9900"
+        android:dividerHeight="2px" />
 </RelativeLayout>
