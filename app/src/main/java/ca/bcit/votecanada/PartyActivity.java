@@ -44,25 +44,7 @@ public class PartyActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.nav_map:
-                                break;
-                            case R.id.nav_parties:
-                                break;
-                            case R.id.nav_checklist:
-                                break;
-
-                        }
-                        return true;
-                    }
-                });
 
     }
 }

@@ -6,29 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ca.bcit.votecanada.PartyActivity">
+    tools:context="ca.bcit.votecanada.PartyActivity"
+    android:background="#ff0000">
 
-
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/party_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    </ScrollView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ff0000"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_nav"
-        app:itemIconTint="#ffffff"
-        app:itemTextColor="#ffffff"/>
+        android:textSize="34sp"
+        android:text="Parties"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:id="@+id/partiesTitle"
+        android:textColor="#ffffff"
+        android:textStyle="bold">
+    </TextView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/party_recycler"
+            android:layout_width="380dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:paddingBottom="10dp"/>
+
+
+    </LinearLayout>
+
 
 
 
 </RelativeLayout>
+
+

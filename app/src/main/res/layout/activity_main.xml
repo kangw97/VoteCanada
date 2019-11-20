@@ -60,4 +60,15 @@
         android:background="@drawable/button"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
+
+    <!-- Button that goes to the activity_party xml -->
+    <Button
+        android:id="@+id/checlistButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:onClick="onCheckListClick"
+        android:text="Checklist"
+        android:background="@drawable/button"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
