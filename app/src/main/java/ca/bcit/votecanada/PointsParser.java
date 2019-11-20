@@ -4,15 +4,17 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
-
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Setting up Google Maps Direction API
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>>  {
     TaskLoadedCallback taskCallback;
     String directionMode = "driving";

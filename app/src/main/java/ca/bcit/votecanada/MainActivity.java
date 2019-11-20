@@ -1,26 +1,26 @@
 package ca.bcit.votecanada;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
+/**
+ * MainActivity that reads JSON objs from Burnaby City API and send all data to Routing Activity
+ * * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class MainActivity extends AppCompatActivity {
 
     // URL to get contacts JSON
@@ -50,19 +50,21 @@ public class MainActivity extends AppCompatActivity {
         pollName = new ArrayList<String>();
         // reading json objects
         new GetContacts().execute();
-    }
-    public void onRoutingClick(View V) {
-        Intent intent = new Intent(this, RoutingActivity.class);
-        // passing address to google map activity
-        intent.putExtra("addresses", addresses);
-        // passing polling name to google map activity
-        intent.putExtra("pollingname", pollName);
-        // passing geo coordinates to google map activity
-        intent.putExtra("geo", longLat);
-        // starting intent
-        startActivity(intent);
-    }
 
+    }
+    // starting routing activity after click VIEW MAP button
+    public void onRoutingClick(View V) {
+        // intent for RoutingActivity
+        Intent intentRouting = new Intent(this, RouteActivity.class);
+        // passing address to google map activity
+        intentRouting.putExtra("addresses", addresses);
+        // passing polling name to google map activity
+        intentRouting.putExtra("pollingname", pollName);
+        // passing geo coordinates to google map activity
+        intentRouting.putExtra("geo", longLat);
+        startActivity(intentRouting);
+    }
+    // starting party activity after click PARTIES button
     public void onPartyClick(View V) {
         Intent intent = new Intent(this, PartyActivity.class);
         startActivity(intent);
