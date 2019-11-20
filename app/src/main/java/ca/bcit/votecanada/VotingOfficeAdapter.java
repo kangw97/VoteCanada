@@ -7,11 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-
 import java.util.List;
-
+/**
+ * Adapting VotingOffice Class
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class VotingOfficeAdapter extends ArrayAdapter<VotingOffice> {
     // activity instance
     private Activity context;
@@ -69,7 +70,7 @@ public class VotingOfficeAdapter extends ArrayAdapter<VotingOffice> {
         // set the office address
         tvOfficeAddress.setText(vf.getAddress());
         // set the office distance
-        tvOfficeDistance.setText(Double.toString(vf.getDistance()));
+        tvOfficeDistance.setText(vf.getDistance() + " km");
         return listViewItem;
     }
 

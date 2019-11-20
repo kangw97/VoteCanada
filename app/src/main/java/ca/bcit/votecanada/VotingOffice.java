@@ -4,6 +4,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 /**
  *  Voting Office class to hold Voting Office informations from Json
+ *
+ *  * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
  */
 public class VotingOffice {
     // office name

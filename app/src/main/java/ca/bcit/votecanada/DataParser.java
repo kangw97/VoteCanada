@@ -1,19 +1,16 @@
 package ca.bcit.votecanada;
 
-import android.util.Log;
-
 import com.google.android.gms.maps.model.LatLng;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by KANG
+ * Setting up Google Maps Direction API
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
  */
 
 public class DataParser {
@@ -92,7 +89,6 @@ public class DataParser {
                     (((double) lng / 1E5)));
             poly.add(p);
         }
-
         return poly;
     }
 }

@@ -13,6 +13,7 @@ import java.net.URL;
 
 /**
  * Class to make Http calls in order to read Json objects from Url
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
  */
 public class HttpHandler {
     // TAG name
