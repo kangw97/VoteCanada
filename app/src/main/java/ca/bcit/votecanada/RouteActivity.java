@@ -89,7 +89,6 @@ public class RouteActivity extends AppCompatActivity implements OnMapReadyCallba
     // when map is ready
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
         Log.i("test", "ready");
         mMap = googleMap;
 
