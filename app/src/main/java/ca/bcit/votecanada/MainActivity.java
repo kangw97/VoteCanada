@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // starting party activity after click PARTIES button
+    public void onCheckListClick(View V) {
+        Intent intent = new Intent(this, CheckListActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Async task class to get json by making HTTP call
      */
