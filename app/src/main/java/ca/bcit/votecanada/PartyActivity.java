@@ -1,18 +1,15 @@
 package ca.bcit.votecanada;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+/**
+ * Party Activity to display the party information
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class PartyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +29,10 @@ public class PartyActivity extends AppCompatActivity {
 
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(partyNames, partyImages);
         partyRecycler.setAdapter(adapter);
-
+        // gridLayout
         GridLayoutManager lm = new GridLayoutManager(PartyActivity.this, 1);
         partyRecycler.setLayoutManager(lm);
-
+        // click listener
         adapter.setListener(new CaptionedImagesAdapter.Listener() {
             public void onClick(String partyName) {
                 Intent i = new Intent(PartyActivity.this, DetailActivity.class);
@@ -43,8 +40,5 @@ public class PartyActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
     }
 }
