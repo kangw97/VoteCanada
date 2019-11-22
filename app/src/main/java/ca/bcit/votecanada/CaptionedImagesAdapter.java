@@ -1,6 +1,5 @@
 package ca.bcit.votecanada;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;

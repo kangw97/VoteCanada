@@ -4,4 +4,22 @@
     <!-- Main Activity String Values -->
     <string name="home_title">VoteCanada</string>
     <string name="title_activity_routing">Map</string>
+    <string name="checkList">Checklist</string>
+    <string name="makeSure">Make sure you\'re registered</string>
+    <string name="watchFor">Watch for your voter information card in the mail</string>
+    <string name="ID">Check that you have the right ID</string>
+    <string name="choose">Choose one of the many ways to vote</string>
+    <string name="findOut">Find out who the candidates are in your riding</string>
+    <string name="calendar">Mark your calendar with key dates</string>
+    <string name="seats">seats</string>
+    <string name="leader">Leader:</string>
+    <string name="party">Party:</string>
+    <string name="percentage">Percentage</string>
+    <string name="ideo">Ideologies: </string>
+    <string name="mapButton">View Map</string>
+    <string name="partyButton">Parties</string>
+    <string name="checklistButton">Checklist</string>
+    <string name="tv">TextView</string>
+
+
 </resources>

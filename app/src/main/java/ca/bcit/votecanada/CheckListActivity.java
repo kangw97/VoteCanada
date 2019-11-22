@@ -3,8 +3,7 @@ package ca.bcit.votecanada;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
+
 
 /**
  * Check list activity
