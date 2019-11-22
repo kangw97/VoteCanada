@@ -20,20 +20,17 @@
 
     <CheckBox android:id="@+id/register"
         android:layout_marginTop="80dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/makeSure"
         android:buttonTint="@color/themeRed" />
     <CheckBox android:id="@+id/infoCard"
         android:layout_width="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:buttonTint="@color/themeRed"
         android:text="@string/watchFor" />
     <CheckBox android:id="@+id/IDCheck"
         android:buttonTint="@color/themeRed"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ID" />
@@ -41,19 +38,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/themeRed"
-        android:layout_gravity="center_horizontal"
         android:text="@string/choose" />
     <CheckBox android:id="@+id/findOut"
         android:layout_width="wrap_content"
         android:buttonTint="@color/themeRed"
-        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:text="@string/findOut" />
     <CheckBox android:id="@+id/markCalender"
         android:buttonTint="@color/themeRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:text="@string/calendar" />
-
 </LinearLayout>
