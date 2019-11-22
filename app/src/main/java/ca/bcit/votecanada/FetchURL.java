@@ -18,12 +18,22 @@ import java.net.URL;
 
 public class FetchURL extends AsyncTask<String, Void, String> {
     Context mContext;
+    // transporting mode
     String directionMode = "driving";
 
+    /**
+     * constructor
+     * @param mContext
+     */
     public FetchURL(Context mContext) {
         this.mContext = mContext;
     }
 
+    /**
+     * append transporting mode in background
+     * @param strings
+     * @return
+     */
     @Override
     protected String doInBackground(String... strings) {
         // For storing data from web service
@@ -39,6 +49,10 @@ public class FetchURL extends AsyncTask<String, Void, String> {
         return data;
     }
 
+    /**
+     * after execution
+     * @param s
+     */
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
@@ -47,6 +61,12 @@ public class FetchURL extends AsyncTask<String, Void, String> {
         parserTask.execute(s);
     }
 
+    /**
+     * download Url api for routing
+     * @param strUrl
+     * @return
+     * @throws IOException
+     */
     private String downloadUrl(String strUrl) throws IOException {
         String data = "";
         InputStream iStream = null;
