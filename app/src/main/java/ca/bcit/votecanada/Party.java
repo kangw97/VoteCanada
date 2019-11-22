@@ -60,7 +60,7 @@ public class Party {
                     "Yves-François Blanchet",
                     blocIdeo,
                     "32",
-                    "9.5",
+                    "9.5%",
                     R.drawable.bloc,
                     R.drawable.yfb),
             new Party(
@@ -68,23 +68,23 @@ public class Party {
                     "Jagmeet Singh",
                     ndpIdeo,
                     "24",
-                    "7.1",
+                    "7.1%",
                     R.drawable.ndp,
                     R.drawable.js),
             new Party(
                     "Green Party",
                     "Elizabeth May",
-                    peopleIdeo,
+                    greenIdeo,
                     "3",
-                    "0.8",
+                    "0.8%",
                     R.drawable.green,
                     R.drawable.emg),
             new Party(
                     "People's Party",
                     "Maxime Bernier",
-                    greenIdeo,
+                    peopleIdeo,
                     "1",
-                    "0.3",
+                    "0.3%",
                     R.drawable.people,
                     R.drawable.mb)
     };
