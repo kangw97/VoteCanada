@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -12,11 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:id="@+id/partiesTitle"
-        android:textColor="#ff0000"
+        android:textColor="@color/themeRed"
         android:layout_gravity="center_horizontal"
         android:textStyle="bold"
         android:textSize="34sp"
-        android:text="Checklist">
+        android:text="@string/checkList">
     </TextView>
 
     <CheckBox android:id="@+id/register"
@@ -24,37 +23,37 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Make sure you're registered"
-        android:buttonTint="#ff0000" />
+        android:text="@string/makeSure"
+        android:buttonTint="@color/themeRed" />
     <CheckBox android:id="@+id/infoCard"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:buttonTint="#ff0000"
-        android:text="Watch for your voter information card in the mail" />
+        android:buttonTint="@color/themeRed"
+        android:text="@string/watchFor" />
     <CheckBox android:id="@+id/IDCheck"
-        android:buttonTint="#ff0000"
+        android:buttonTint="@color/themeRed"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check that you have the right ID" />
+        android:text="@string/ID" />
     <CheckBox android:id="@+id/waysVote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:buttonTint="#ff0000"
+        android:buttonTint="@color/themeRed"
         android:layout_gravity="center_horizontal"
-        android:text="Choose one of the many ways to vote" />
+        android:text="@string/choose" />
     <CheckBox android:id="@+id/findOut"
         android:layout_width="wrap_content"
-        android:buttonTint="#ff0000"
+        android:buttonTint="@color/themeRed"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:text="Find out who the candidates are in your riding" />
+        android:text="@string/findOut" />
     <CheckBox android:id="@+id/markCalender"
-        android:buttonTint="#ff0000"
+        android:buttonTint="@color/themeRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Mark your calendar with key dates" />
+        android:text="@string/calendar" />
 
 </LinearLayout>
