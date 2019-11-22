@@ -21,7 +21,7 @@ public class HttpHandler {
     // default constructor
     public HttpHandler() {
     }
-    // connectiong to url
+    // connecting to url
     public String makeServiceCall(String reqUrl) {
         String response = null;
         try {

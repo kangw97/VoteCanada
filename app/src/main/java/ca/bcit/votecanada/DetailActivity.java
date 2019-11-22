@@ -7,6 +7,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+/**
+ * Party Detail activity, onclick party
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +20,9 @@ public class DetailActivity extends AppCompatActivity {
         displayPartyDetails();
     }
 
+    /**
+     * display the chosen party info
+     */
     private void displayPartyDetails() {
         String partyName = (String) getIntent().getExtras().get("partyName");
 

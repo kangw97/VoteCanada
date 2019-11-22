@@ -12,22 +12,37 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+/**
+ * Image adapter for party logos
+ * @author Jovan Sekhon, Kang Wang, Lawrence Zheng, 2019-11-20
+ */
 public class  CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder>
 {
+    // onclick listener
     private Listener listener;
+    // caption for party
+    private String[] captions;
+    // img id
+    private int[] imageIds;
+
+    /**
+     * listener interface
+     */
     interface Listener {
         void onClick(String partyName);
     }
 
+    /**
+     * setter for listener
+     * @param listener
+     */
     public void setListener(Listener listener) {
         this.listener = listener;
     }
 
-
-    private String[] captions;
-    private int[] imageIds;
-
+    /**
+     * view holder
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
 
@@ -37,16 +52,31 @@ public class  CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImage
         }
     }
 
+    /**
+     * Img adapter
+     * @param captions
+     * @param imageIds
+     */
     public CaptionedImagesAdapter(String[] captions, int[] imageIds) {
         this.captions = captions;
         this.imageIds = imageIds;
     }
 
+    /**
+     * nun of captions
+     * @return
+     */
     @Override
     public int getItemCount() {
         return captions.length;
     }
 
+    /**
+     * captioned img adapter and img holder
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public CaptionedImagesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         CardView cv = (CardView) LayoutInflater.from(parent.getContext())
@@ -54,6 +84,11 @@ public class  CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImage
         return new ViewHolder(cv);
     }
 
+    /**
+     * binded view holder
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final CardView cardView = holder.cardView;
@@ -76,6 +111,4 @@ public class  CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImage
         });
 
     }
-
-
 }
